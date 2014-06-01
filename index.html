@@ -30,6 +30,10 @@ http://apps.zetakey.com/signsend
 
 **************************************************/ -->
 
+<!--
+	Modified to allow multiple Signees.
+	Author: Hassan
+-->
 
 <!DOCTYPE html>
 <html>
@@ -39,7 +43,6 @@ http://apps.zetakey.com/signsend
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
 
 		<script src="signature.js"></script>
-
 	</head>
 
 	<style>
@@ -47,56 +50,103 @@ http://apps.zetakey.com/signsend
 			margin: 0;
 			padding: 0;
 		}
-		#wrapper {
+		
+		.wrapper {
 			width: 100%;
 			padding: 1px;
 		}
+		
 		canvas {
 			position: relative;
 			margin: 1px;
 			margin-left: 0px;
 			border: 1px solid #3a87ad;
 		}
+		
 		h1, p {
 			padding-left: 2px;
 			width: 100%;
 			margin: 0 auto;
 		}
+		
 		#controlPanel {
 			margin: 2px;
 		}
-		#saveSignature {
-			display: none;
-		}
+		
 	</style>
 
 	<body>
-		<div id="wrapper">
-			<p>Zetakey Signature Webapp</p>
-			<div id="canvas">
+
+		<div class="wrapper">
+			<p>Signee 1</p>
+			
+			<div id="canvasWrapper1">
 				Canvas is not supported.
 			</div>
 
 			<script>
-				signatureCapture();
+				var signCapture1 = SignCapture("canvasWrapper1");
 			</script>
 
-			<button type="button" onclick="signatureClear()">
+			<button type="button" onclick="signCapture1.signatureClear()">
 				Clear Signature
 			</button>
-			<br />
-			<img id="saveSignature" alt="Saved image png"/>
-
+			
+			<button type="button" onclick="signCapture1.signatureSave()">
+				Save Signature
+			</button>			
+<!--			
 			<form>
-				<label for="Email">To:</label>
-				<input type="email" id="sendemail" size="35" placeholder="Send to email" autocomplete="on"/><br />
-				<label for="Email">From:</label>
-				<input type="email" id="replyemail"  size="35" value="contact@zetakey.com" disabled />(Disabled)
-				<br />
-				<button type="button" onclick="signatureSend()">
+				<button type="button" onclick="signCapture1.signatureSend()">
 					Send Email
 				</button>
 			</form>
+-->			
 		</div>
+		
+		<br/><br/>
+		
+		<div class="wrapper">
+			<p>Signee 2</p>
+			
+			<div id="canvasWrapper2">
+				Canvas is not supported.
+			</div>
+
+			<script>
+				var signCapture2 = SignCapture("canvasWrapper2");
+			</script>
+
+			<button type="button" onclick="signCapture2.signatureClear()">
+				Clear Signature
+			</button>
+			
+			<button type="button" onclick="signCapture2.signatureSave()">
+				Save Signature
+			</button>	
+		</div>
+
+		<br/><br/>
+		
+		<div class="wrapper">
+			<p>Signee 3</p>
+			
+			<div id="canvasWrapper3">
+				Canvas is not supported.
+			</div>
+
+			<script>
+				var signCapture3 = SignCapture("canvasWrapper3");
+			</script>
+
+			<button type="button" onclick="signCapture3.signatureClear()">
+				Clear Signature
+			</button>
+			
+			<button type="button" onclick="signCapture3.signatureSave()">
+				Save Signature
+			</button>	
+		</div>
+		
 	</body>
 </html>
